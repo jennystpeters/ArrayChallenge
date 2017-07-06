@@ -9,10 +9,13 @@ public class ArrayChallenge2 {
 
         int sum = 0;
 
-        System.out.println("Please enter number of rows: ");
-        System.out.println("Please enter number");
+        System.out.print("Please enter number of rows: ");
+        int rows = entry.nextInt();
 
-        int[][] array = new int[3][3];
+        System.out.print("Please enter number of columns: ");
+        int columns = entry.nextInt();
+
+        int[][] array = new int[rows][columns];
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -20,13 +23,30 @@ public class ArrayChallenge2 {
                 System.out.printf("Please enter an integer for row %d column %d:    ", i, j);
                 array[i][j] = entry.nextInt();
 
-                sum += array[i][j];
-
+                if (i == 0 || i == (rows - 1)) {
+                    sum += array[i][j];
+                } else {
+                    if (columns % 2 != 0) {
+                        if (j == columns / 2) {
+                            sum += array[i][j];
+                        } else {
+                        }
+                    } else {
+                        if ((j == columns / 2) || (j == (columns / 2) + 1)) {
+                            sum += array[i][j];
+                        }
+                    }
+                }
             }
         }
-        System.out.println();
+        for (int k = 0; k < array.length; k++) {
+            for (int l = 0; l < array[k].length; l++) {
+                System.out.print(array[k][l] + "  " );
+            }
+            System.out.println();
+        }
 
-        sum = sum - (array[1][0] + array[1][2]);
         System.out.println("Hourglass sum is " + sum);
     }
 }
+

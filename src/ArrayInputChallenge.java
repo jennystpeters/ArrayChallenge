@@ -25,6 +25,5 @@ public class ArrayInputChallenge {
 
         sum = sum - (array[1][0] + array[1][2]);
         System.out.println("Hourglass sum is " + sum);
-
    }
 }
